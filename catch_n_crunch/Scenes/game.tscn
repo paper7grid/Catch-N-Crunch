@@ -1,10 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvkvju44tunqe"]
+[gd_scene load_steps=5 format=3 uid="uid://bvkvju44tunqe"]
 
+[ext_resource type="Script" uid="uid://r2fm6hxxpc3x" path="res://Scenes/game.gd" id="1_3dryh"]
 [ext_resource type="Texture2D" uid="uid://bplqs4r60mmx" path="res://asset/Background/BG.png" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://dux8ykuh0xlpk" path="res://Scenes/basket.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://tr5s5100ihko" path="res://Scenes/apple.tscn" id="3_3dryh"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_3dryh")
+apple_scene = ExtResource("3_3dryh")
 
 [node name="Bg" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(512, 513)
 texture = ExtResource("1_ebmjs")
+
+[node name="Basket" parent="." instance=ExtResource("2_wrm1d")]
+
+[node name="apple" parent="." instance=ExtResource("3_3dryh")]
+position = Vector2(796, 6)
+
+[node name="appletimer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true

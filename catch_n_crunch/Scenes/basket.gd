@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var speed: float = 350.0
+@export var speed: float = 400.0
 func _physics_process(delta):
 	var direction = 0
 	
@@ -9,4 +9,5 @@ func _physics_process(delta):
 		direction += 1
 	velocity.x = direction * speed
 	move_and_slide()
-	position.x = clamp(position.x, 30, get_viewport_rect().size.x - 30)
+	var screen_width = get_viewport().get_visible_rect().size.x
+	position.x = clamp(position.x, 30, screen_width - 30)
