@@ -6,15 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6x3n3"]
 size = Vector2(324, 152)
 
-[node name="Basket" type="CharacterBody2D"]
+[node name="Basket" type="CharacterBody2D" groups=["apple"]]
 script = ExtResource("1_n26is")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(551, 847)
+position = Vector2(208, 859)
 scale = Vector2(1.44954, 1.36883)
 texture = ExtResource("2_0ksvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(535, 894)
+position = Vector2(186, 894)
 shape = SubResource("RectangleShape2D_6x3n3")
