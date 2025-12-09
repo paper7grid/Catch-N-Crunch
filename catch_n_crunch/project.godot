@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Catch_n_Crunch"
+run/main_scene="uid://bvkvju44tunqe"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
