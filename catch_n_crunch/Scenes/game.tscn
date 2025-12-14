@@ -35,13 +35,14 @@ theme_override_font_sizes/font_size = 46
 text = "SCORE: "
 
 [node name="GameOver" type="Label" parent="."]
-visible = false
-offset_left = 285.0
-offset_top = 436.0
-offset_right = 744.0
-offset_bottom = 508.0
+offset_left = 231.0
+offset_top = 380.0
+offset_right = 833.0
+offset_bottom = 837.0
 theme_override_fonts/font = ExtResource("5_wowpa")
-theme_override_font_sizes/font_size = 65
-text = "GAME OVER"
+theme_override_font_sizes/font_size = 52
+text = "GAME OVER
+
+Press space to restart!"
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 3

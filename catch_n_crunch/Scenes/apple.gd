@@ -1,12 +1,16 @@
 extends Area2D
-@export var fall_speed = 400
+@export var fall_speed = 500
 signal caught
 signal missed 
+var is_caught = false
 
 func _ready():
 	add_to_group("apple") 
 
 func _physics_process(_delta):
+	if is_caught:
+		return 
+	
 	position.y += fall_speed * _delta
 	
 	# Only trigger "missed" if apple goes off BOTTOM of screen
@@ -17,6 +21,8 @@ func _physics_process(_delta):
 		queue_free()
 
 func catch_apple():
-	print("Apple CAUGHT!")
+	if is_caught: 
+		return
+	is_caught = true
 	emit_signal("caught")
 	queue_free()

@@ -6,6 +6,7 @@ var score_label: Label
 var game_over_label: Label
 var game_over: bool = false
 
+
 func _process(_delta):
 	#This to check if restart game
 	if game_over and Input.is_action_just_pressed("ui_accept"):  # Spacebar
@@ -37,27 +38,28 @@ func spawn_apple():
 	apple.position = Vector2(randf_range(50, screen_width - 50), -20)
 
 func apple_caught() -> void:
-	print("GAME: Caught signal received! Score:", score, "→", score + 1)
 	score += 1
 	update_score()
 	
 func apple_missed() -> void:
-	print("GAME: Missed signal received! GAME OVER")
-	game_over = true
-	$appletimer.stop()
-	show_game_over()
+	if not game_over:
+		print("GAME: Missed signal received! GAME OVER")
+		game_over = true
+		$appletimer.stop()
+		show_game_over()
 
 func update_score():
 	score_label.text = "Score: " + str(score)
 
 func show_game_over():
+	score_label.text = "Final Score: " + str(score) 
 	game_over_label.visible = true
-	score_label.text = "Final Score: " + str(score) + "\nPress SPACE to Restart"
 
 func restart_game():
-	for apple in get_tree().get_nodes_in_group("apple"):
-		apple.queue_free()
+	get_tree().call_group("apple", "queue_free")
 	score = 0
 	game_over = false
 	update_score()
+	game_over_label.visible = false
+	$appletimer.start()
 	
