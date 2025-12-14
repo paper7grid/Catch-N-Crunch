@@ -8,7 +8,6 @@
 
 [node name="Game" type="Node"]
 script = ExtResource("1_3dryh")
-apple_scene = ExtResource("3_3dryh")
 
 [node name="Bg" type="Sprite2D" parent="."]
 z_index = -1
