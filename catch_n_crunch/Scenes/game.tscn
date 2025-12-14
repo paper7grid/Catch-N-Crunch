@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvkvju44tunqe"]
+[gd_scene load_steps=6 format=3 uid="uid://bvkvju44tunqe"]
 
 [ext_resource type="Script" uid="uid://r2fm6hxxpc3x" path="res://Scenes/game.gd" id="1_3dryh"]
 [ext_resource type="Texture2D" uid="uid://bplqs4r60mmx" path="res://asset/Background/BG.png" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://dux8ykuh0xlpk" path="res://Scenes/basket.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://tr5s5100ihko" path="res://Scenes/apple.tscn" id="3_3dryh"]
+[ext_resource type="FontFile" uid="uid://pqskqmi6vatu" path="res://asset/fonts/TrueType (.ttf)/Kaph-Regular.ttf" id="5_wowpa"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_3dryh")
@@ -15,7 +16,7 @@ position = Vector2(512, 513)
 texture = ExtResource("1_ebmjs")
 
 [node name="Basket" parent="." groups=["basket"] instance=ExtResource("2_wrm1d")]
-position = Vector2(-337, 13)
+position = Vector2(-17, -78)
 
 [node name="apple" parent="." instance=ExtResource("3_3dryh")]
 position = Vector2(796, 6)
@@ -25,5 +26,23 @@ wait_time = 1.2
 autostart = true
 
 [node name="Score" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+texture_filter = 1
+offset_left = 352.0
+offset_top = 960.0
+offset_right = 616.0
+offset_bottom = 1013.0
+theme_override_fonts/font = ExtResource("5_wowpa")
+theme_override_font_sizes/font_size = 46
+text = "SCORE: "
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+offset_left = 285.0
+offset_top = 436.0
+offset_right = 744.0
+offset_bottom = 508.0
+theme_override_fonts/font = ExtResource("5_wowpa")
+theme_override_font_sizes/font_size = 65
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1

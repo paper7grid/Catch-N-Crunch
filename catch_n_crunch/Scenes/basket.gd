@@ -13,4 +13,4 @@ func _physics_process(delta):
 	position.x = clamp(position.x, 30, screen_width - 30)
 func _on_basket_area_entered(area: Area2D) -> void:
 	if area.is_in_group("apple"):
-		area.emit_signal("caught", area)
+		area.catch_apple() 
